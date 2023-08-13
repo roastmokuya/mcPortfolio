@@ -20,7 +20,7 @@ watchEffect(() => {
         class="w-[72px] h-[72px] md:w-20 md:h-20 sm:hover:bg-zinc-900 sm:hover:text-white sm:hover:dark:bg-yellow-400 sm:hover:dark:text-zinc-900 duration-300 rounded-full flex flex-col justify-center items-center"
         target="_blank"
         rel="noreferrer"
-        :aria-abel="[locale === 'zh-TW' ? '點擊顯示' : 'Click to watch']"
+        :aria-label="locale === 'zh-TW' ? '點擊顯示' : 'Click to watch'"
       >
         <IconDocument />
         <p class="font-bold text-sm sm:text-base">

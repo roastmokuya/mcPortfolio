@@ -5,9 +5,9 @@ const { locale } = useI18n();
 <template>
   <div
     class="cubeBtn"
-    :aria-abel="[
-      locale === 'zh-TW' ? '點擊顯示或關閉' : 'Click to show or close',
-    ]"
+    :aria-label="
+      locale === 'zh-TW' ? '點擊顯示或關閉' : 'Click to show or close'
+    "
   >
     <slot name="iconTop" />
     <p

@@ -12,20 +12,26 @@ watchEffect(() => {
   }
 });
 
+// 判斷是否為手機裝置
+const { isMobile } = useIsMobile();
+
 // 眼球轉動
 const eyes = [{ name: "left" }, { name: "right" }];
 const eyeRef = ref([]);
 onMounted(() => {
-  window.addEventListener("mousemove", (e) => {
-    eyeRef.value.forEach((item: any) => {
-      let angle = Math.atan2(
-        e.pageX - item.getBoundingClientRect().left - item.clientLeft / 2,
-        e.pageY - item.getBoundingClientRect().top - item.clientTop / 2
-      );
-      let rot = -(angle * 180) / Math.PI - 90;
-      item.style.transform = `rotate(${rot}deg)`;
+  if (!isMobile()) {
+    window.addEventListener("mousemove", (e) => {
+      eyeRef.value.forEach((item: any) => {
+        let angle = Math.atan2(
+          e.pageX - item.getBoundingClientRect().left - item.clientLeft / 2,
+          e.pageY - item.getBoundingClientRect().top - item.clientTop / 2
+        );
+        let rot = -(angle * 180) / Math.PI - 90;
+        item.style.transform = `rotate(${rot}deg)`;
+      });
     });
-  });
+  } else {
+  }
 });
 </script>
 
@@ -34,7 +40,7 @@ onMounted(() => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 400 400"
-      :aria-abel="[locale === 'zh-TW' ? '我的畫像' : 'My portrait']"
+      :aria-label="locale === 'zh-TW' ? '我的畫像' : 'My portrait'"
     >
       <g id="fullColor">
         <path
@@ -914,8 +920,11 @@ onMounted(() => {
     <div
       v-for="eye in eyes"
       :key="eye.name"
-      class="eye absolute w-3 h-3 sm:w-5 sm:h-5 rounded-full border-2 md:border-[3px] border-zinc-900 top-[33.5%] after:bg-zinc-900"
-      :class="[eye.name === 'left' ? 'left-[38%]' : 'right-[40%]']"
+      class="absolute w-3 h-3 sm:w-5 sm:h-5 rounded-full border-2 md:border-[3px] border-zinc-900 top-[33.5%] after:bg-zinc-900"
+      :class="[
+        eye.name === 'left' ? 'left-[38%]' : 'right-[40%]',
+        isMobile() ? 'mobileEye' : 'eye',
+      ]"
       ref="eyeRef"
     />
     <Coding />
@@ -965,7 +974,8 @@ onMounted(() => {
 }
 
 // 眼球
-.eye:after {
+.eye:after,
+.mobileEye:after {
   position: absolute;
   content: "";
   top: 50%;
@@ -974,6 +984,10 @@ onMounted(() => {
   width: 60%;
   height: 60%;
   border-radius: 50%;
+}
+.mobileEye:after {
+  left: 30%;
+  transform: translateY(-85%);
 }
 // 線段動畫
 svg {

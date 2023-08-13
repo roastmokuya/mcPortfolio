@@ -15,7 +15,7 @@ const changeLangFn = () => {
   <button
     class="swatchButton"
     type="button"
-    :aria-abel="[locale === 'zh-TW' ? '切換語系' : 'Change Language']"
+    :aria-label="locale === 'zh-TW' ? '切換語系' : 'Change Language'"
     @click="changeLangFn"
   >
     <span class="sr-only">

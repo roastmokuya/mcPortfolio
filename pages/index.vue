@@ -34,6 +34,9 @@ const changeLangFn = () => {
   locale.value = locale.value === "zh-TW" ? "en-US" : "zh-TW";
 };
 
+// 判斷是否為手機裝置
+const { isMobile } = useIsMobile();
+
 // seo 多國語系
 const baseUrl = inject<string>("baseUrl");
 watchEffect(() => {
@@ -89,7 +92,7 @@ watchEffect(() => {
       </div>
       <div class="mt-5 mb-20">
         <HeadSVGHead class="z-[1]" />
-        <Blob class="hidden md:block z-0" />
+        <Blob v-if="!isMobile()" class="z-0" />
       </div>
       <div class="flex pb-10">
         <SwitchMode @change-mode="changeModeFn" />

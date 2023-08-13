@@ -64,6 +64,9 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      htmlAttrs: {
+        lang: "en",
+      },
       viewport: "width=device-width, initial-scale=1, viewport-fit=cover",
     },
   },

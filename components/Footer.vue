@@ -5,7 +5,9 @@ year.value = new Date().getFullYear();
 
 <template>
   <div class="absolute w-screen text-center bottom-1 p-3">
-    <small class="text-zinc-400 text-xs font-poppins tracking-wide">
+    <small
+      class="text-zinc-500 dark:text-zinc-400 text-xs font-poppins tracking-wide"
+    >
       &copy; {{ year }} WILL WU.
       <span class="hidden sm:inline">
         All Rights Reserved. | Design & Code by WILL WU.

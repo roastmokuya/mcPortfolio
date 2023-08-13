@@ -15,7 +15,7 @@ const changeModeFn = () => {
   <button
     class="swatchButton"
     type="button"
-    :aria-abel="[locale === 'zh-TW' ? '切換主題' : 'Change Theme']"
+    :aria-label="locale === 'zh-TW' ? '切換主題' : 'Change Theme'"
     @click="changeModeFn"
   >
     <span class="sr-only">

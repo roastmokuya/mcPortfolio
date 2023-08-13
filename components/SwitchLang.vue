@@ -18,7 +18,7 @@ const changeLangFn = () => {
     :aria-label="
       locale === 'zh-TW'
         ? '切換中文或英文語系'
-        : 'Switch to the Mandarin or English'
+        : 'Switch to the Chinese language Mandarin(中文) or English'
     "
     @click="changeLangFn"
   >

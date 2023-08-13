@@ -1,15 +1,16 @@
 <script setup>
 const { isLoading } = useLoading();
+const route = useRoute();
 
 // 設定 seo link canonical
-const route = useRoute();
-const { VITE_APP_BASEURL } = import.meta.env;
+const baseUrl = "https://portfolio-mengche.vercel.app/";
+provide("baseUrl", baseUrl);
 watchEffect(() => {
   useHead({
     link: [
       {
         rel: "canonical",
-        href: `${VITE_APP_BASEURL}${route.path}`,
+        href: `${baseUrl}${route.path}`,
       },
     ],
   });

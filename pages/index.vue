@@ -35,7 +35,7 @@ const changeLangFn = () => {
 };
 
 // seo 多國語系
-const { VITE_APP_BASEURL } = import.meta.env;
+const baseUrl = inject<string>("baseUrl");
 watchEffect(() => {
   useSeoMeta({
     title: t("indexTitle"),
@@ -45,7 +45,7 @@ watchEffect(() => {
     ogDescription: t("indexDescription"),
     ogSiteName: t("indexTitle"),
     ogType: "website",
-    ogUrl: VITE_APP_BASEURL,
+    ogUrl: baseUrl,
     ogImage:
       "https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1691715529997.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=hX3o5PVAg53pi1kosjjBapWYPePTSigA6V8bvTGZk6lUh6cIODui2IWWbi2emN2JrkH15wrolEpycHfCgH1N9TkxwrifHdwEVYmG2RnJTCUXby7DdAjTrZEbofSL1bUIZfiOX%2Ba7u%2FFzXkQeICZ6PrUbFwBSNmJQv%2Bi5qrFUL2bsyokTJTDbfJ04dSrVrz5ri19KdEoaoCKMHC89kJPW2MSCFsLHBsfqBgoAbJrpA91QMIjzTPJpIiaWHnfEt2g8RY8chldM9livoAdFdmfkBPLkaY7Xk3%2B1YP6ZQU%2B2VQYYzB8gehUpZcmTRHg5R2cUjc%2BkEOtEuznMVPjnGIJC2w%3D%3D",
   });

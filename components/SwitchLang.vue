@@ -12,16 +12,7 @@ const changeLangFn = () => {
 </script>
 
 <template>
-  <button
-    class="swatchButton"
-    type="button"
-    :aria-label="
-      locale === 'zh-TW'
-        ? '切換中文或英文語系'
-        : 'Switch to the Chinese language Mandarin(中文) or English'
-    "
-    @click="changeLangFn"
-  >
+  <button class="swatchButton" type="button" @click="changeLangFn">
     <span class="sr-only">
       {{
         switchLang === "zh-TW"

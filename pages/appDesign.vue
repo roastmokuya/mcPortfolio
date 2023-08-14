@@ -442,19 +442,6 @@ watchEffect(() => {
                   : appData.wireframe.enDescription
               }}
             </p>
-            <NuxtLink
-              :to="appData.wireframe.link"
-              target="_blank"
-              rel="noreferrer"
-              class="text-orange-400 underline flex items-center"
-            >
-              <IconTriangle class="rotate-0 mr-2" />
-              {{
-                locale === "zh-TW"
-                  ? "Figma Wireframes 連結"
-                  : "Figma Wireframes Link"
-              }}
-            </NuxtLink>
           </div>
           <NuxtImg
             :src="`/images/mbTool/${appData.wireframe.img}`"

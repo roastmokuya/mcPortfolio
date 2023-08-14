@@ -45,5 +45,6 @@
   "showTel": "Show Mobile",
   "hideTel": "Hide Mobile",
   "showEmail": "Show E-mail",
-  "hideEmail": "Hide E-mail"
+  "hideEmail": "Hide E-mail",
+  "loading": "Loading..."
 }

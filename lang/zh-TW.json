@@ -45,5 +45,6 @@
   "showTel": "顯示號碼",
   "hideTel": "隱藏號碼",
   "showEmail": "顯示信箱",
-  "hideEmail": "隱藏信箱"
+  "hideEmail": "隱藏信箱",
+  "loading": "載入中..."
 }

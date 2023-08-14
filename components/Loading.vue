@@ -14,7 +14,7 @@ import GiraffeJSON from "~/assets/lottie/giraffe.json";
         :loop="true"
         :speed="1"
       />
-      <p class="tracking-wider font-poppins font-medium">Loading...</p>
+      <p class="tracking-wider font-poppins font-medium">{{ $t("loading") }}</p>
     </div>
   </ClientOnly>
 </template>

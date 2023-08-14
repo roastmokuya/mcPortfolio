@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const switchValue = inject<any>("switchValue");
-const { locale } = useI18n();
 
 const emits = defineEmits<{
   changeMode: [];
@@ -12,12 +11,7 @@ const changeModeFn = () => {
 </script>
 
 <template>
-  <button
-    class="swatchButton"
-    type="button"
-    :aria-label="locale === 'zh-TW' ? '切換主題' : 'Change Theme'"
-    @click="changeModeFn"
-  >
+  <button class="swatchButton" type="button" @click="changeModeFn">
     <span class="sr-only">
       {{ switchValue ? $t("disDark") : $t("opDark") }}
     </span>

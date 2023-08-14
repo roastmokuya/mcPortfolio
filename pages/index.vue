@@ -20,19 +20,31 @@ const changeModeFn = () => {
   colorMode.preference = switchValue.value ? "dark" : "light";
 };
 
+// 多國語系
 const { locale, setLocaleCookie, t } = useI18n();
+const htmlLang = ref("");
 // 傳 locale.value 會無法響應式
 provide("switchLang", locale);
 
-// 語系儲存到 cookie
-watch(locale, (newVal) => {
-  setLocaleCookie(newVal);
+watchEffect(() => {
+  // 變更 html lang
+  document.documentElement.lang = htmlLang.value;
+  // 語系儲存到 cookie
+  setLocaleCookie(locale.value);
 });
 
 // 切換語系
 const changeLangFn = () => {
   locale.value = locale.value === "zh-TW" ? "en-US" : "zh-TW";
+  changeHtmlLang();
 };
+const changeHtmlLang = () => {
+  htmlLang.value = locale.value === "zh-TW" ? "zh-Hant-Tw" : "en";
+};
+
+onMounted(() => {
+  changeHtmlLang();
+});
 
 // 判斷是否為手機裝置
 const { isMobile } = useIsMobile();

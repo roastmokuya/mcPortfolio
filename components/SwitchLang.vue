@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const switchLang = inject<any>("switchLang");
-const { locale } = useI18n();
 
 const emits = defineEmits<{
   changeLang: [];

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import fontawesomeClient from "plugins/fontawesome.client";
+
 interface IData {
   aboutData: IAboutData;
 }
@@ -31,6 +33,10 @@ interface ISvg {
   fill: string;
   depth: number;
 }
+
+const props = defineProps<{
+  isOpen: Boolean;
+}>();
 
 const { locale } = useI18n();
 
@@ -229,7 +235,7 @@ const aboutData = data.value?.aboutData as IAboutData;
       <h2 class="text-2xl font-bold mb-10">
         {{ locale === "zh-TW" ? "里程碑" : "Milestone" }}
       </h2>
-      <AboutAwardSwiper />
+      <AboutAwardSwiper v-if="props.isOpen" />
     </div>
   </div>
 </template>

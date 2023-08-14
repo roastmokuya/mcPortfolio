@@ -38,16 +38,9 @@ watch(isOpen, (newVal) => {
       </template>
       {{ $t("about") }}
     </CubeBtn>
-    <Content
-      v-if="isOpen"
-      :class="[
-        isOpen
-          ? 'translate-x-0 translate-y-0 visible opacity-100'
-          : 'translate-x-full -translate-y-full invisible opacity-0',
-      ]"
-    >
+    <Content v-show="isOpen">
       <template #content>
-        <AboutInnerContent />
+        <AboutInnerContent :is-open="isOpen" />
       </template>
     </Content>
   </div>

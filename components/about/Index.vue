@@ -40,7 +40,7 @@ watch(isOpen, (newVal) => {
     </CubeBtn>
     <Content v-show="isOpen">
       <template #content>
-        <AboutInnerContent :is-open="isOpen" />
+        <AboutInnerContent />
       </template>
     </Content>
   </div>

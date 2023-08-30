@@ -3,7 +3,7 @@ const { isLoading } = useLoading();
 const route = useRoute();
 
 // 設定 seo link canonical
-const baseUrl = "https://portfolio-mengche.vercel.app/";
+const baseUrl = "https://portfolio-mengche.vercel.app";
 provide("baseUrl", baseUrl);
 watchEffect(() => {
   useHead({

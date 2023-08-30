@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const { locale } = useI18n();
-
 interface IData {
   skillsData: ISkill[];
 }

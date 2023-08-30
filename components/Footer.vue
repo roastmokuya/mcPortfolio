@@ -8,9 +8,9 @@ year.value = new Date().getFullYear();
     <small
       class="text-zinc-500 dark:text-zinc-400 text-xs font-poppins tracking-wide"
     >
-      &copy; {{ year }} WILL WU.
-      <span class="hidden sm:inline">
-        All Rights Reserved. | Design & Code by WILL WU.
+      &copy; {{ year }} Meng Che WU.
+      <span class="hidden md:inline">
+        All Rights Reserved. | Design & Code by Meng Che WU.
       </span>
     </small>
   </div>

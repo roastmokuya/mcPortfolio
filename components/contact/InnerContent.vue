@@ -51,9 +51,18 @@ const contactData: ISetContactData[] = [
 
 // 不監聽 i18n 不起作用，更改語系無法渲染到畫面
 watch(locale, () => {
-  const textAry = [t("showTel"), t("showEmail")];
+  const showAllAry = [t("showTel"), t("showEmail")];
+  const hideTelAry = [t("hideTel"), t("showEmail")];
+  const hideEmailAry = [t("showTel"), t("hideEmail")];
+
   contactData.forEach((item: ISetContactData, index: number) => {
-    item.showText.value = textAry[index];
+    if (isShowTel.value) {
+      item.showText.value = hideTelAry[index];
+    } else if (isShowEmail.value) {
+      item.showText.value = hideEmailAry[index];
+    } else {
+      item.showText.value = showAllAry[index];
+    }
   });
 });
 

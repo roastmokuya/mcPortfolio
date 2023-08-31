@@ -29,7 +29,6 @@ const partners = data.value?.partners as IPartner[];
       format="webp"
       quality="60"
       densities="x1 x2"
-      class=""
     />
   </div>
 </template>

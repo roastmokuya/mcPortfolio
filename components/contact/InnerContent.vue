@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { title } from "process";
-
 // 定義資料
 interface IData {
   contactData: IContactData;

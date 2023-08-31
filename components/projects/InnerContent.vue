@@ -1,9 +1,6 @@
 <script setup lang="ts">
 const { locale } = useI18n();
 
-// const { VITE_APP_API } = import.meta.env;
-// const { data } = await useFetch<IProject[]>(`${VITE_APP_API}/personals`);
-
 // 定義 res.data
 interface IData {
   sideProjects: IProject[] | null;

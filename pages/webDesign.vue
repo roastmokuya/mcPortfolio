@@ -48,7 +48,7 @@ onMounted(() => {
 
 // seo 多國語系
 const { locale, t } = useI18n();
-const baseUrl = inject<string>("baseUrl");
+const { VITE_APP_BASEURL } = import.meta.env;
 watchEffect(() => {
   useSeoMeta({
     title: `${t("indexTitle")} - ${t("workWebTitle")}`,
@@ -58,7 +58,7 @@ watchEffect(() => {
     ogDescription: t("workWebDescription"),
     ogSiteName: `${t("indexTitle")} - ${t("workWebTitle")}`,
     ogType: "website",
-    ogUrl: `${baseUrl}/webDesign`,
+    ogUrl: `${VITE_APP_BASEURL}/webDesign`,
     ogImage:
       "https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1691049235157.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=ImaCZu0NKU1linhceC3atePNXuAevTvZuDZIoQ1vf0pjQZSJQOW2V6IIKvUBlIKyhjHW%2F71ozJC%2Brea03ChrP3uw%2FWUoRRyE4dwq1WD9zgA%2FGJwSnO8bvUPkhmwqsyLs6YUComTfyTE2zJ8ycymw2i9HYrSgZSZ1EeAxQ8Iq1Hqykh54tWNmDdazQwKN7tUm7M6kchROVhRc92fxQ7UteP1%2BHSWjxksCmCxkmZC%2FQCowfsq38ler%2FCL9XAbweNVOM99%2FKH55xUF8gy9BHDOWBB9Ol%2FLaD6rxrBx55y18YIAp1jfVXSg1GfhJ9syWgXj8lMcjyZkx9AdSMAN2wlj%2BRQ%3D%3D",
   });
@@ -83,7 +83,7 @@ watchEffect(() => {
           <p class="text-2xl font-medium mb-3">
             {{ locale === "zh-TW" ? item.title : item.enTitle }}
           </p>
-          <div class="">
+          <div>
             <h2 class="text-zinc-600 dark:text-zinc-400">
               {{ locale === "zh-TW" ? item.description : item.enDescription }}
             </h2>

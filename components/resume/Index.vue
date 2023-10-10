@@ -1,11 +1,65 @@
 <script setup lang="ts">
-const { locale } = useI18n();
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
+
+const colorMode = useColorMode();
+const { locale, t } = useI18n();
 const resume = ref("");
 
 watchEffect(() => {
+  colorMode.value;
   resume.value =
     locale.value === "zh-TW" ? "mengche-resume-tw" : "mengche-resume-en";
 });
+
+const { VITE_RESUME_PASSWORD, VITE_APP_TOKEN } = import.meta.env;
+const pass = "hireme";
+console.log("pass:", VITE_RESUME_PASSWORD);
+console.log("token:", VITE_APP_TOKEN);
+
+const openPasswordFn = (): void => {
+  if (!sessionStorage.getItem("token")) {
+    Swal.fire({
+      title: t("password"),
+      input: "password",
+      inputPlaceholder: t("password"),
+      inputAttributes: {
+        autocapitalize: "off",
+        autocorrect: "off",
+      },
+      customClass: {
+        popup: "poppins",
+      },
+      color: colorMode.value === "dark" ? "#fff" : "#545454",
+      background: colorMode.value === "dark" ? "#212529" : "#fff",
+      reverseButtons: true,
+      showCancelButton: true,
+      confirmButtonColor: "#f59e0b",
+      cancelButtonColor: "transparent",
+      confirmButtonText: t("confirm"),
+      cancelButtonText: t("cancel"),
+      showLoaderOnConfirm: true,
+      preConfirm: (password) => {
+        if (password !== pass) {
+          Swal.showValidationMessage(t("passwordError"));
+        } else {
+          sessionStorage.setItem("token", VITE_APP_TOKEN);
+          openPDFHandler();
+        }
+      },
+    });
+  } else {
+    openPDFHandler();
+  }
+};
+
+const openPDFHandler = (): void => {
+  navigateTo(`/resume/${resume.value}.pdf`, {
+    open: {
+      target: "_blank",
+    },
+  });
+};
 </script>
 
 <template>
@@ -14,21 +68,19 @@ watchEffect(() => {
     :class="[locale === 'zh-TW' ? 'font-noto' : 'font-poppins']"
   >
     <div class="absolute z-10 ml-1 mt-1">
-      <NuxtLink
-        :to="`/resume/${resume}.pdf`"
-        external
-        class="w-[72px] h-[72px] md:w-20 md:h-20 sm:hover:bg-zinc-900 sm:hover:text-white sm:hover:dark:bg-yellow-400 sm:hover:dark:text-zinc-900 duration-300 rounded-full flex flex-col justify-center items-center"
-        target="_blank"
+      <div
+        class="w-[72px] h-[72px] md:w-20 md:h-20 sm:hover:bg-zinc-900 sm:hover:text-white sm:hover:dark:bg-yellow-400 sm:hover:dark:text-zinc-900 duration-300 rounded-full flex flex-col justify-center items-center cursor-pointer"
         rel="noreferrer"
         :aria-label="
           locale === 'zh-TW' ? '點擊顯示履歷表' : 'Click to watch my resume'
         "
+        @click.stop="openPasswordFn()"
       >
         <IconDocument />
         <p class="font-bold text-sm sm:text-base">
           {{ $t("resume") }}
         </p>
-      </NuxtLink>
+      </div>
     </div>
 
     <div
@@ -59,5 +111,45 @@ watchEffect(() => {
   to {
     transform: rotate(359deg);
   }
+}
+</style>
+
+<style>
+:root {
+  --yellow-dark: #f59e0b;
+  --red: #f93232;
+}
+.swal2-title {
+  font-size: 1.6rem;
+}
+.swal2-input {
+  &:focus {
+    border: 1px solid var(--yellow-dark);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06),
+      0 0 0 2px rgba(250, 204, 21, 0.3);
+  }
+  &.swal2-inputerror {
+    border-color: var(--red) !important;
+  }
+}
+.swal2-confirm,
+.swal2-cancel {
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+.swal2-cancel {
+  color: #777 !important;
+}
+.swal2-validation-message {
+  background: transparent;
+  color: var(--red);
+  font-weight: 500;
+  &::before {
+    background: var(--red);
+  }
+}
+.swal2-popup {
+  font-family: "Poppins", "'Noto Sans TC'", sans-serif;
 }
 </style>

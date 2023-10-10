@@ -18,11 +18,10 @@
     "@nuxtjs/eslint-module": "^4.1.0",
     "@nuxtjs/i18n": "8.0.0-beta.10",
     "@nuxtjs/tailwindcss": "^6.8.0",
-    "@tailwindcss/typography": "^0.5.9",
-    "@types/node": "^18.17.0",
-    "gh-pages": "^6.0.0",
-    "nuxt": "^3.6.5",
-    "sass": "^1.64.1"
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/node": "^20.8.2",
+    "nuxt": "^3.7.4",
+    "sass": "^1.68.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
@@ -30,12 +29,13 @@
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@pinia/nuxt": "^0.4.11",
     "echarts": "^5.4.3",
-    "flowbite": "^1.7.0",
+    "flowbite": "^1.8.1",
     "lottie-web-vue": "^2.0.7",
-    "nuxt-swiper": "^1.2.0",
-    "photoswipe": "^5.3.8",
-    "pinia": "^2.1.4",
-    "vue-echarts": "^6.6.0",
+    "nuxt-swiper": "^1.2.2",
+    "photoswipe": "^5.4.2",
+    "pinia": "^2.1.6",
+    "sweetalert2": "^11.7.31",
+    "vue-echarts": "^6.6.1",
     "vue-kinesis": "^2.0.5",
     "vue-writer": "^1.2.0"
   }

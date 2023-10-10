@@ -16,7 +16,7 @@ linkPath.value = route.path === "/webDesign" ? "/appDesign" : "/webDesign";
           class="inline-flex items-center md:hover:text-zinc-500"
         >
           <IconLeft class="mr-2" />
-          {{ $t("back") }}
+          <IconHome />
         </NuxtLink>
         <NuxtLink
           :to="linkPath"

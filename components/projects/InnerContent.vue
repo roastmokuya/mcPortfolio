@@ -108,6 +108,7 @@ onMounted(() => {
                   target="_blank"
                   rel="noreferrer"
                   class="flex-1 font-medium py-3 text-zinc-600 hover:text-white dark:text-zinc-400 dark:hover:text-white hover:bg-zinc-500 transition-colors inline-flex justify-center items-center"
+                  style="padding: 0.8rem 0"
                   :aria-abel="[
                     locale === 'zh-TW' ? '連結到網站' : 'Link to Website',
                   ]"

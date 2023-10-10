@@ -15,7 +15,7 @@ watchEffect(() => {
 });
 
 // 切換模式
-const changeModeFn = () => {
+const changeModeFn = (): void => {
   switchValue.value = !switchValue.value;
   colorMode.preference = switchValue.value ? "dark" : "light";
 };
@@ -34,11 +34,12 @@ watchEffect(() => {
 });
 
 // 切換語系
-const changeLangFn = () => {
+const changeLangFn = (): void => {
   locale.value = locale.value === "zh-TW" ? "en-US" : "zh-TW";
   changeHtmlLang();
 };
-const changeHtmlLang = () => {
+// 切換 HTML 標籤
+const changeHtmlLang = (): void => {
   htmlLang.value = locale.value === "zh-TW" ? "zh-Hant-Tw" : "en";
 };
 

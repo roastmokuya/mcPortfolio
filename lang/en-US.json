@@ -46,5 +46,9 @@
   "hideTel": "Hide Mobile",
   "showEmail": "Show E-mail",
   "hideEmail": "Hide E-mail",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "confirm": "Confirm",
+  "cancel": "Cancel",
+  "password": "Please Enter password",
+  "passwordError": "Password error, please try again!"
 }

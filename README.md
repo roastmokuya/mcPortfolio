@@ -22,7 +22,9 @@ https://portfolio-mengche.vercel.app
 - Pinia
 - SCSS
 - SVG Animation
+- SweetAlert 2
 - Tailwind CSS 3
 - TypeScript
+- Vercel
 - Vue Kinesis
 - Vue Writer

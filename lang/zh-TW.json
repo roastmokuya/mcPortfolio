@@ -46,5 +46,9 @@
   "hideTel": "隱藏號碼",
   "showEmail": "顯示信箱",
   "hideEmail": "隱藏信箱",
-  "loading": "載入中..."
+  "loading": "載入中...",
+  "confirm": "確認",
+  "cancel": "取消",
+  "password": "請輸入密碼",
+  "passwordError": "密碼錯誤，請重新輸入！"
 }

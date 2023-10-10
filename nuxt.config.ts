@@ -5,13 +5,6 @@ export default defineNuxtConfig({
     preset: "vercel-edge",
   },
   devtools: { enabled: true },
-  runtimeConfig: {
-    public: {
-      baseUrl: process.env.NUXT_APP_BASEURL || "http://localhost:3000",
-      resumePass: process.env.NUXT_RESUME_PASSWORD,
-      resumeToken: process.env.NUXT_RESUME_TOKEN,
-    },
-  },
   imports: {
     dirs: ["stores"],
   },

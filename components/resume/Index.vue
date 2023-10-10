@@ -12,15 +12,7 @@ watchEffect(() => {
     locale.value === "zh-TW" ? "mengche-resume-tw" : "mengche-resume-en";
 });
 
-// const { NUXT_APP_BASEURL, NUXT_RESUME_PASSWORD, NUXT_RESUME_TOKEN } =
-//   import.meta.env;
-
-const config = useRuntimeConfig();
-// console.log(import.meta.env.MODE);
-// console.log(import.meta.env.PROD);
-console.log(config.public.baseUrl);
-console.log(config.public);
-
+const { VITE_RESUME_PASSWORD, VITE_RESUME_TOKEN } = import.meta.env;
 const openPasswordFn = (): void => {
   if (!sessionStorage.getItem("token")) {
     Swal.fire({
@@ -44,10 +36,10 @@ const openPasswordFn = (): void => {
       cancelButtonText: t("cancel"),
       showLoaderOnConfirm: true,
       preConfirm: (password) => {
-        if (password !== config.public.resumePass) {
+        if (password !== VITE_RESUME_PASSWORD) {
           Swal.showValidationMessage(t("passwordError"));
         } else {
-          sessionStorage.setItem("token", config.public.resumeToken);
+          sessionStorage.setItem("token", VITE_RESUME_TOKEN);
           openPDFHandler();
         }
       },

@@ -49,6 +49,6 @@
   "loading": "Loading...",
   "confirm": "Confirm",
   "cancel": "Cancel",
-  "password": "Please Enter password",
+  "password": "Please enter password",
   "passwordError": "Password error, please try again!"
 }

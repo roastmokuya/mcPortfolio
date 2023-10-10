@@ -22,6 +22,7 @@ const openPasswordFn = (): void => {
       inputAttributes: {
         autocapitalize: "off",
         autocorrect: "off",
+        "aria-label": t("password"),
       },
       customClass: {
         popup: "poppins",
@@ -35,9 +36,13 @@ const openPasswordFn = (): void => {
       confirmButtonText: t("confirm"),
       cancelButtonText: t("cancel"),
       showLoaderOnConfirm: true,
-      preConfirm: (password) => {
-        if (password !== VITE_RSM_PW) {
+      preConfirm: (password: string) => {
+        if (password.trim() !== VITE_RSM_PW) {
           Swal.showValidationMessage(t("passwordError"));
+          // 選取 input 內所有文字
+          (<HTMLInputElement>(
+            Swal.getPopup()?.querySelector("#swal2-input")
+          )).select();
         } else {
           sessionStorage.setItem("token", VITE_RSM_TK);
           openPDFHandler();

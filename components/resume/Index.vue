@@ -12,7 +12,7 @@ watchEffect(() => {
     locale.value === "zh-TW" ? "mengche-resume-tw" : "mengche-resume-en";
 });
 
-const { VITE_RESUME_PASSWORD, VITE_RESUME_TOKEN } = import.meta.env;
+const { VITE_RSM_PW, VITE_RSM_TK } = import.meta.env;
 const openPasswordFn = (): void => {
   if (!sessionStorage.getItem("token")) {
     Swal.fire({
@@ -36,10 +36,10 @@ const openPasswordFn = (): void => {
       cancelButtonText: t("cancel"),
       showLoaderOnConfirm: true,
       preConfirm: (password) => {
-        if (password !== VITE_RESUME_PASSWORD) {
+        if (password !== VITE_RSM_PW) {
           Swal.showValidationMessage(t("passwordError"));
         } else {
-          sessionStorage.setItem("token", VITE_RESUME_TOKEN);
+          sessionStorage.setItem("token", VITE_RSM_TK);
           openPDFHandler();
         }
       },

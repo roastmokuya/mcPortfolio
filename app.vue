@@ -3,13 +3,14 @@ const { isLoading } = useLoading();
 const route = useRoute();
 
 // 設定 seo link canonical
-const { VITE_APP_BASEURL } = import.meta.env;
+// const { VITE_APP_BASEURL } = import.meta.env;
+const config = useRuntimeConfig();
 watchEffect(() => {
   useHead({
     link: [
       {
         rel: "canonical",
-        href: `${VITE_APP_BASEURL}${route.path}`,
+        href: `${config.public.baseUrl}${route.path}`,
       },
     ],
   });

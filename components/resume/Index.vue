@@ -12,10 +12,10 @@ watchEffect(() => {
     locale.value === "zh-TW" ? "mengche-resume-tw" : "mengche-resume-en";
 });
 
-const { VITE_RESUME_PASSWORD, VITE_APP_TOKEN } = import.meta.env;
-const pass = "hireme";
-console.log("pass:", VITE_RESUME_PASSWORD);
-console.log("token:", VITE_APP_TOKEN);
+// const { VITE_RESUME_PASSWORD, VITE_APP_TOKEN } = import.meta.env;
+const config = useRuntimeConfig();
+console.log(config.public.resumePass);
+console.log(config.public.resumeToken);
 
 const openPasswordFn = (): void => {
   if (!sessionStorage.getItem("token")) {
@@ -40,10 +40,10 @@ const openPasswordFn = (): void => {
       cancelButtonText: t("cancel"),
       showLoaderOnConfirm: true,
       preConfirm: (password) => {
-        if (password !== pass) {
+        if (password !== config.public.resumePass) {
           Swal.showValidationMessage(t("passwordError"));
         } else {
-          sessionStorage.setItem("token", VITE_APP_TOKEN);
+          sessionStorage.setItem("token", config.public.resumeToken);
           openPDFHandler();
         }
       },
@@ -82,7 +82,6 @@ const openPDFHandler = (): void => {
         </p>
       </div>
     </div>
-
     <div
       class="w-20 h-20 md:w-[88px] md:h-[88px] text-xs font-medium rotate-180 spin-slow"
       :class="[

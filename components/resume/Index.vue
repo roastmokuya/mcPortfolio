@@ -12,10 +12,13 @@ watchEffect(() => {
     locale.value === "zh-TW" ? "mengche-resume-tw" : "mengche-resume-en";
 });
 
-// const { VITE_RESUME_PASSWORD, VITE_APP_TOKEN } = import.meta.env;
+const { NUXT_APP_BASEURL, NUXT_RESUME_PASSWORD, NUXT_RESUME_TOKEN } =
+  import.meta.env;
 const config = useRuntimeConfig();
 console.log(config.public.resumePass);
-console.log(config.public.resumeToken);
+console.log(import.meta.env.MODE);
+console.log(NUXT_APP_BASEURL);
+console.log(NUXT_RESUME_PASSWORD);
 
 const openPasswordFn = (): void => {
   if (!sessionStorage.getItem("token")) {

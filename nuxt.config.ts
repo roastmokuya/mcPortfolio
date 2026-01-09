@@ -2,15 +2,15 @@
 
 export default defineNuxtConfig({
   nitro: {
-    preset: "vercel-edge",
+    preset: "vercel",
   },
   devtools: { enabled: true },
   imports: {
     dirs: ["stores"],
   },
   runtimeConfig: {
-    apiTel: process.env.VITE_API_TEL,
-    apiEmail: process.env.VITE_API_EMAIL,
+    apiTel: process.env.NUXT_API_TEL,
+    apiEmail: process.env.NUXT_API_EMAIL,
   },
   modules: [
     "@nuxtjs/tailwindcss",

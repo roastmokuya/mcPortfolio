@@ -1,7 +1,8 @@
 export default defineEventHandler(() => {
+  const config = useRuntimeConfig();
   const contactData = {
-    tel: "+886 912689501",
-    email: "letcla0624@gmail.com",
+    tel: config.apiTel,
+    email: config.apiEmail,
   };
 
   return { contactData };

@@ -26,9 +26,9 @@ watchEffect(() => {
 
 <style lang="scss">
 .op-white {
-  background-color: #ffffffe8;
+  background-color: #fffffffa;
 }
 .op-dark {
-  background-color: #18181be8;
+  background-color: #18181bfa;
 }
 </style>

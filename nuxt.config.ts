@@ -8,6 +8,10 @@ export default defineNuxtConfig({
   imports: {
     dirs: ["stores"],
   },
+  runtimeConfig: {
+    apiTel: process.env.VITE_API_TEL,
+    apiEmail: process.env.VITE_API_EMAIL,
+  },
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",

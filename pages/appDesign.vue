@@ -71,7 +71,7 @@ watchEffect(() => {
     ogType: "website",
     ogUrl: `${VITE_APP_BASEURL}/appDesign`,
     ogImage:
-      "https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1691049741309.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=EtKmtjJLUjEJGmk3RzjkW74OASQAm4R%2B6k%2Fedf8p%2FS0XnsLnLMAwsOuyh0LHatMyz8FBy63sQzu%2BigmeQsYwOpuOdeu%2FsWyuooDdH9wdajzL5zJj65jJ4UjJ5tp%2F2ZO%2FiP3tYNO5MzKkh%2BstI1uHz%2BGCYd7SwQasfBMdROjCaA6lU3vuEMi2LFFu4zIA20j4MgyMjnpuL0UZZ0lTnpz%2FbMuWY1YtwqLev4xuX5oKSNkBb37JY3hZIVluf9skaSmLvdhDx%2B5lafVM8ijvCyJq9xgpukw9f8Ipj9N3S%2BRMDXV1T2S9R%2FCzbnGT%2F9jF0tBu9YsLEzB3mkHmbGqKulcJ9w%3D%3D",
+      "https://storage.googleapis.com/vue-course-api.appspot.com/letcla-fashion/1691049741309.jpg",
   });
 });
 </script>
